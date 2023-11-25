@@ -1,8 +1,15 @@
+// external imports
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
+
+// internal imports
+const {
+	errorHandler,
+	notFoundHandler,
+} = require('./middlewares/common/errorHandler');
 
 const app = express();
 
@@ -27,7 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routing setup
 
-// error handler
+// error handlers
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 app.listen(process.env.PORT, () =>
 	console.log(`app listening to port ${process.env.PORT}`)
