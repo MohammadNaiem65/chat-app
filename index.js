@@ -10,6 +10,7 @@ const {
 	errorHandler,
 	notFoundHandler,
 } = require('./middlewares/common/errorHandler');
+const loginRouter = require('./routers/loginRouter');
 
 const app = express();
 
@@ -22,8 +23,6 @@ mongoose
 // req parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// cookie parser
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // set view engine
@@ -33,6 +32,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routing setup
+app.use('/', loginRouter);
 
 // error handlers
 app.use(notFoundHandler);
