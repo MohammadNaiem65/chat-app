@@ -1,13 +1,16 @@
 import { RouterProvider } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import routes from './routes/routes';
-import store from './app/store';
+import { useAuthCheck } from './hooks';
 
 function App() {
-	return (
-		<Provider store={store}>
-			<RouterProvider router={routes} />
-		</Provider>
+	const authChecked = useAuthCheck();
+
+	return !authChecked ? (
+		<p className='m-5 text-2xl text-center font-semibold'>
+			Auth Checking... Please wait!
+		</p>
+	) : (
+		<RouterProvider router={routes} />
 	);
 }
 

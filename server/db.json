@@ -1,5 +1,54 @@
 {
-	"users": [],
-	"conversations": [],
-	"messages": []
+  "users": [
+    {
+      "email": "sumit@learnwithsumit.com",
+      "password": "$2a$10$SMTtPeKdTMGrbxfiI9qAfeC5qqZYmZHrkuvbQ.ZJ556KIPzjGJKnO",
+      "name": "Sumit Saha",
+      "id": 1
+    },
+    {
+      "email": "prac@tice.com",
+      "password": "$2a$10$2ewOU/QlXwkB1tdZ3wPrn.HDZe9LKK37u0PWS5PA/D4tatdJUijY6",
+      "name": "Md Rifat Ahmed Tusar",
+      "id": 2
+    }
+  ],
+  "conversations": [
+    {
+      "participants": "prac@tice.com-sumit@learnwithsumit.com",
+      "users": [
+        {
+          "id": 4,
+          "name": "Md Rifat Ahmed Tusar",
+          "email": "prac@tice.com"
+        },
+        {
+          "email": "sumit@learnwithsumit.com",
+          "name": "Sumit Saha",
+          "id": 1
+        }
+      ],
+      "message": "fine",
+      "timestamp": 1710849829109,
+      "id": 1
+    }
+  ],
+  "messages": [
+    {
+      "conversationId": 1,
+      "sender": {
+        "id": 4,
+        "name": "Md Rifat Ahmed Tusar",
+        "email": "prac@tice.com"
+      },
+      "receiver": {
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
+      },
+      "message": "Hi",
+      "timestamp": 1710849648761,
+      "id": 1
+    }
+  ]
 }
