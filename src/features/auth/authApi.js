@@ -1,4 +1,5 @@
 import apiSlice from '../api/apiSlice';
+import { userLoggedIn } from './authSlice';
 
 const authApi = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
@@ -15,6 +16,19 @@ const authApi = apiSlice.injectEndpoints({
 				method: 'POST',
 				body: data,
 			}),
+			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+				const { data } = await queryFulfilled;
+				const { accessToken, user } = data || {};
+
+				// save auth credentials to local storage
+				localStorage.setItem(
+					'auth',
+					JSON.stringify({ accessToken, user })
+				);
+
+				// save auth credentials to redux store
+				dispatch(userLoggedIn({ accessToken, user }));
+			},
 		}),
 	}),
 });
