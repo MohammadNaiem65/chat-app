@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Modal from './Modal';
 import ChatItems from './ChatItems';
-// import Blank from "./Blank";
 
 export default function Sidebar() {
 	const [opened, setOpened] = useState(false);
@@ -35,7 +34,6 @@ C139.689,120.449,136.331,117.092,132.189,117.092z'
 			<div className='overflow-auto h-[calc(100vh_-_129px)]'>
 				<ChatItems />
 			</div>
-			{/* <Blank /> */}
 			<Modal open={opened} control={controlModal} />
 		</div>
 	);
