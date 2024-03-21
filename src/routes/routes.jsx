@@ -1,29 +1,49 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import Conversation from '../pages/Conversation';
-import Inbox from '../pages/Inbox';
+
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoute';
+import { Conversation, Inbox, Login, Register } from '../pages';
 
 const routes = createBrowserRouter([
 	{
 		path: '/',
-		element: <Login />,
+		element: (
+			<PublicRoute>
+				<Login />
+			</PublicRoute>
+		),
 	},
 	{
 		path: '/register',
-		element: <Register />,
+		element: (
+			<PublicRoute>
+				<Register />
+			</PublicRoute>
+		),
 	},
 	{
 		path: '/inbox',
-		element: <Conversation />,
+		element: (
+			<PrivateRoute>
+				<Conversation />
+			</PrivateRoute>
+		),
 	},
 	{
 		path: '/conversation',
-		element: <Conversation />,
+		element: (
+			<PrivateRoute>
+				<Conversation />
+			</PrivateRoute>
+		),
 	},
 	{
 		path: '/inbox/:id',
-		element: <Inbox />,
+		element: (
+			<PrivateRoute>
+				<Inbox />
+			</PrivateRoute>
+		),
 	},
 ]);
 
