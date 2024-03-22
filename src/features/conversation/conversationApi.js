@@ -7,8 +7,16 @@ const conversationApi = apiSlice.injectEndpoints({
 				url: `/conversations?participants_like=${email}&_sort=timestamp&_order=desc`,
 			}),
 		}),
+		addConversation: builder.mutation({
+			query: ({ data }) => ({
+				url: '/conversations',
+				method: 'POST',
+				body: data,
+			}),
+		}),
 	}),
 });
 
 export default conversationApi;
-export const { useGetConversationsQuery } = conversationApi;
+export const { useGetConversationsQuery, useAddConversationMutation } =
+	conversationApi;
