@@ -93,7 +93,11 @@ export default function Modal({ open, control, user }) {
 		};
 
 		if (data?.conversationId) {
-			editConversation({ id: data.conversationId, data: conversation });
+			editConversation({
+				id: data.conversationId,
+				userEmail,
+				data: conversation,
+			});
 		} else {
 			addConversation({ userEmail, data: conversation });
 		}

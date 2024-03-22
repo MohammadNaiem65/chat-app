@@ -40,6 +40,31 @@ const conversationApi = apiSlice.injectEndpoints({
 				method: 'PATCH',
 				body: data,
 			}),
+			async onQueryStarted(
+				{ id, userEmail, data },
+				{ queryFulfilled, dispatch }
+			) {
+				const patchResult = dispatch(
+					apiSlice.util.updateQueryData(
+						'getConversations',
+						userEmail,
+						(draft) => {
+							const conversationToEdit = draft.find(
+								(c) => c.id == id
+							);
+
+							conversationToEdit.message = data.message;
+							conversationToEdit.timestamp = data.timestamp;
+						}
+					)
+				);
+
+				try {
+					await queryFulfilled;
+				} catch (error) {
+					patchResult.undo();
+				}
+			},
 		}),
 	}),
 });
