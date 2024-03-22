@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Modal from './Modal';
 import ChatItems from './ChatItems';
+import { useSelector } from 'react-redux';
 
 export default function Sidebar() {
 	const [opened, setOpened] = useState(false);
+
+	const { user } = useSelector((state) => state.auth);
 
 	const controlModal = () => {
 		setOpened((prevState) => !prevState);
@@ -32,9 +35,14 @@ C139.689,120.449,136.331,117.092,132.189,117.092z'
 				</svg>
 			</div>
 			<div className='overflow-auto h-[calc(100vh_-_129px)]'>
-				<ChatItems />
+				<ChatItems userEmail={user?.email} />
 			</div>
-			<Modal open={opened} control={controlModal} />
+			
+			<Modal
+				open={opened}
+				control={controlModal}
+				user={user}
+			/>
 		</div>
 	);
 }

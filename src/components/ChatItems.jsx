@@ -1,17 +1,16 @@
-import { useSelector } from 'react-redux';
 import { useGetConversationsQuery } from '../features/conversation/conversationApi';
+import getParticipant from '../utils/getParticipant';
 
 import ChatItem from './ChatItem';
 import Error from './ui/Error';
 
-export default function ChatItems() {
-	const { user } = useSelector((state) => state.auth);
+export default function ChatItems({ userEmail }) {
 	const {
 		data: conversations,
 		isLoading,
 		isError: processIsError,
 		error: processError,
-	} = useGetConversationsQuery(user?.email);
+	} = useGetConversationsQuery(userEmail);
 
 	// decide what content to render
 	let content;
@@ -33,23 +32,26 @@ export default function ChatItems() {
 	} else if (!isLoading && !processIsError && conversations.length > 0) {
 		content = conversations
 			.toSorted((a, b) => b.timestamp - a.timestamp)
-			.map((conversation) => (
-				<ChatItem key={conversation.id} conversation={conversation} />
-			));
+			.map((conversation) => {
+				const participant = getParticipant(
+					userEmail,
+					conversation?.users
+				);
+				return (
+					<ChatItem
+						key={conversation.id}
+						conversationId={conversation.id}
+						participantDetails={participant}
+						timestamp={conversation.timestamp}
+						message={conversation.message}
+					/>
+				);
+			});
 	}
 
 	return (
 		<ul>
-			<li>
-				{/* <ChatItem
-					avatar='https://cdn.pixabay.com/photo/2018/09/12/12/14/man-3672010__340.jpg'
-					name='Saad Hasan'
-					lastMessage='bye'
-					lastTime='25 minutes'
-				/>
-*/}
-				{content}
-			</li>
+			<li>{content}</li>
 		</ul>
 	);
 }
