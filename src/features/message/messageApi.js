@@ -4,7 +4,7 @@ const messagesApi = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
 		getMessages: builder.query({
 			query: ({ conversationId }) =>
-				`/messages/${conversationId}?_sort=timestamp&_order=desc&_page=1&_limit=5`,
+				`/messages?conversationId=${conversationId}&_sort=timestamp&_order=desc&_page=1&_limit=5`,
 		}),
 	}),
 });
