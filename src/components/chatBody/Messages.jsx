@@ -23,17 +23,19 @@ export default function Messages({ user }) {
 	} else if (!isLoading && !isError && messages?.length > 0) {
 		content = (
 			<>
-				{messages.map((message, index) => (
-					<Message
-						key={index}
-						message={message?.message}
-						justify={
-							message?.sender?.email === user?.email
-								? 'end'
-								: 'start'
-						}
-					/>
-				))}
+				{messages
+					.toSorted((a, b) => a?.timestamp - b?.timestamp)
+					.map((message, index) => (
+						<Message
+							key={index}
+							message={message?.message}
+							justify={
+								message?.sender?.email === user?.email
+									? 'end'
+									: 'start'
+							}
+						/>
+					))}
 			</>
 		);
 	}
