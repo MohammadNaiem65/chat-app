@@ -20,7 +20,9 @@ export default function Options({ conversationId, sender, receiver }) {
 			id: conversationId,
 			userEmail: sender?.email,
 			data,
-		}).then(() => {});
+		});
+
+		setMessage('');
 	};
 
 	return (

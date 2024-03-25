@@ -40,8 +40,8 @@
           "email": "sumit@learnwithsumit.com"
         }
       ],
-      "message": "test",
-      "timestamp": 1711393505605,
+      "message": "test again",
+      "timestamp": 1711394105428,
       "id": 1
     },
     {
@@ -58,108 +58,90 @@
           "email": "mdratahmednaiem@gmail.com"
         }
       ],
-      "message": "hello",
-      "timestamp": 1711357182574,
+      "message": "again",
+      "timestamp": 1711394206404,
       "id": 2
-    },
-    {
-      "participants": "prac@tice.com-md.rifat@gmail.com",
-      "users": [
-        {
-          "id": 2,
-          "name": "Md Rifat Ahmed Tusar",
-          "email": "prac@tice.com"
-        },
-        {
-          "id": 4,
-          "name": "Test",
-          "email": "md.rifat@gmail.com"
-        }
-      ],
-      "message": "test 2",
-      "timestamp": 1711392550428,
-      "id": 3
     }
   ],
   "messages": [
     {
       "conversationId": 1,
       "sender": {
-        "id": 4,
+        "id": 2,
         "name": "Md Rifat Ahmed Tusar",
         "email": "prac@tice.com"
       },
       "receiver": {
-        "email": "sumit@learnwithsumit.com",
+        "id": 1,
         "name": "Sumit Saha",
-        "id": 1
+        "email": "sumit@learnwithsumit.com"
       },
-      "message": "Hi",
-      "timestamp": 1710849648761,
+      "message": "test",
+      "timestamp": 1711394075869,
       "id": 1
     },
     {
-      "conversationId": 3,
+      "conversationId": 1,
       "sender": {
-        "id": 2,
+        "email": "prac@tice.com",
         "name": "Md Rifat Ahmed Tusar",
-        "email": "prac@tice.com"
+        "id": 2
       },
       "receiver": {
-        "id": 4,
-        "name": "Test",
-        "email": "md.rifat@gmail.com"
+        "id": 1,
+        "name": "Sumit Saha",
+        "email": "sumit@learnwithsumit.com"
       },
-      "message": "test",
-      "timestamp": 1711392274556,
+      "message": "test again",
+      "timestamp": 1711394105428,
       "id": 2
     },
     {
-      "conversationId": 3,
+      "conversationId": 2,
       "sender": {
         "id": 2,
         "name": "Md Rifat Ahmed Tusar",
         "email": "prac@tice.com"
       },
       "receiver": {
-        "id": 4,
-        "name": "Test",
-        "email": "md.rifat@gmail.com"
+        "id": 3,
+        "name": "Md Rifat Ahmed Tusar",
+        "email": "mdratahmednaiem@gmail.com"
       },
-      "message": "test 2",
-      "timestamp": 1711392550428,
+      "message": "testing",
+      "timestamp": 1711394162644,
       "id": 3
     },
     {
-      "conversationId": 1,
+      "conversationId": 2,
       "sender": {
         "email": "prac@tice.com",
         "name": "Md Rifat Ahmed Tusar",
         "id": 2
       },
       "receiver": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "email": "sumit@learnwithsumit.com"
+        "id": 3,
+        "name": "Md Rifat Ahmed Tusar",
+        "email": "mdratahmednaiem@gmail.com"
       },
-      "message": "test",
-      "timestamp": 1711393496213,
+      "message": "test again",
+      "timestamp": 1711394198684,
       "id": 4
     },
     {
-      "conversationId": 1,
+      "conversationId": 2,
       "sender": {
         "email": "prac@tice.com",
         "name": "Md Rifat Ahmed Tusar",
         "id": 2
       },
       "receiver": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "email": "sumit@learnwithsumit.com"
+        "id": 3,
+        "name": "Md Rifat Ahmed Tusar",
+        "email": "mdratahmednaiem@gmail.com"
       },
-      "message": "test",
-      "timestamp": 1711393505605,
+      "message": "again",
+      "timestamp": 1711394206404,
       "id": 5
     }
   ]
