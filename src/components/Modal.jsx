@@ -101,6 +101,14 @@ export default function Modal({ open, control, user }) {
 		} else {
 			addConversation({ userEmail, data: conversation });
 		}
+
+		// reset states
+		setData({
+			recipient: '',
+			message: '',
+			partnerExists: null,
+			conversationId: null,
+		});
 	};
 
 	// resist messaging to own
