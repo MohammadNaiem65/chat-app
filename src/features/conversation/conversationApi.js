@@ -46,9 +46,22 @@ const conversationApi = apiSlice.injectEndpoints({
 						messagesApi.endpoints.addMessage.initiate({
 							data: messageData,
 						})
-					);
+					).then((res) => {
+						const { data } = res;
 
-					// pessimistic conversation cache update
+						// pessimistically update messages cache
+						dispatch(
+							apiSlice.util.upsertQueryData(
+								'getMessages',
+								{
+									conversationId: conversationId?.toString(),
+								},
+								[data]
+							)
+						);
+					});
+
+					// pessimistically update conversation cache
 					if (newConversation?.id) {
 						dispatch(
 							apiSlice.util.updateQueryData(
