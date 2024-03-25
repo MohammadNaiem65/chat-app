@@ -23,9 +23,9 @@ export default function Messages({ user }) {
 	} else if (!isLoading && !isError && messages?.length > 0) {
 		content = (
 			<>
-				{messages.map((message) => (
+				{messages.map((message, index) => (
 					<Message
-						key={message?.id}
+						key={index}
 						message={message?.message}
 						justify={
 							message?.sender?.email === user?.email

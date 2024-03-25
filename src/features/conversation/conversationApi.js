@@ -1,4 +1,5 @@
 import apiSlice from '../api/apiSlice';
+import messagesApi from '../message/messageApi';
 
 const conversationApi = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
@@ -16,6 +17,36 @@ const conversationApi = apiSlice.injectEndpoints({
 			async onQueryStarted({ userEmail }, { queryFulfilled, dispatch }) {
 				try {
 					const { data: newConversation } = await queryFulfilled;
+
+					const {
+						id: conversationId,
+						users,
+						message,
+						timestamp,
+					} = newConversation || {};
+
+					const messageData = {
+						conversationId,
+						sender: undefined,
+						receiver: undefined,
+						message: message,
+						timestamp: timestamp,
+					};
+
+					users?.forEach((user) => {
+						if (user?.email === userEmail) {
+							messageData.sender = user;
+						} else if (user?.email !== userEmail) {
+							messageData.receiver = user;
+						}
+					});
+
+					// dispatch addMessage thunk
+					dispatch(
+						messagesApi.endpoints.addMessage.initiate({
+							data: messageData,
+						})
+					);
 
 					// pessimistic conversation cache update
 					if (newConversation?.id) {
@@ -44,6 +75,7 @@ const conversationApi = apiSlice.injectEndpoints({
 				{ id, userEmail, data },
 				{ queryFulfilled, dispatch }
 			) {
+				// optimistically update the conversations
 				const patchResult = dispatch(
 					apiSlice.util.updateQueryData(
 						'getConversations',

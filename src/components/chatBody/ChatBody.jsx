@@ -39,7 +39,11 @@ export default function ChatBody() {
 						name={partner?.name}
 					/>
 					<Messages user={user} />
-					<Options />
+					<Options
+						conversationId={conversationId}
+						sender={user}
+						receiver={partner}
+					/>
 				</div>
 			</div>
 		)
