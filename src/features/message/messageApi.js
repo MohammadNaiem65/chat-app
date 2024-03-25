@@ -12,23 +12,6 @@ const messagesApi = apiSlice.injectEndpoints({
 				method: 'POST',
 				body: data,
 			}),
-
-			async onQueryStarted({ data }, { queryFulfilled, dispatch }) {
-				// optimistically update messages cache
-				const patchResult = dispatch(
-					apiSlice.util.upsertQueryData(
-						'getMessages',
-						{ conversationId: data?.conversationId?.toString() },
-						[data]
-					)
-				);
-
-				try {
-					await queryFulfilled;
-				} catch (error) {
-					patchResult.undo();
-				}
-			},
 		}),
 	}),
 });

@@ -75,7 +75,7 @@ const conversationApi = apiSlice.injectEndpoints({
 				{ id, userEmail, data },
 				{ queryFulfilled, dispatch }
 			) {
-				// optimistically update the conversations
+				// optimistically update the conversations cache
 				const patchResult = dispatch(
 					apiSlice.util.updateQueryData(
 						'getConversations',
@@ -92,7 +92,52 @@ const conversationApi = apiSlice.injectEndpoints({
 				);
 
 				try {
-					await queryFulfilled;
+					const { data: newConversation } = await queryFulfilled;
+
+					const {
+						id: conversationId,
+						users,
+						message,
+						timestamp,
+					} = newConversation || {};
+
+					const messageData = {
+						conversationId,
+						sender: undefined,
+						receiver: undefined,
+						message: message,
+						timestamp: timestamp,
+					};
+
+					users?.forEach((user) => {
+						if (user?.email === userEmail) {
+							messageData.sender = user;
+						} else if (user?.email !== userEmail) {
+							messageData.receiver = user;
+						}
+					});
+
+					// dispatch addMessage thunk
+					dispatch(
+						messagesApi.endpoints.addMessage.initiate({
+							data: messageData,
+						})
+					).then((res) => {
+						// pessimistically update the messages cache
+						const { data: messageDetails } = res;
+
+						dispatch(
+							apiSlice.util.updateQueryData(
+								'getMessages',
+								{
+									conversationId: conversationId.toString(),
+								},
+								(draft) => {
+									draft.push(messageDetails);
+								}
+							)
+						);
+					});
 				} catch (error) {
 					patchResult.undo();
 				}
