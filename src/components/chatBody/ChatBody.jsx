@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import gravatarUrl from 'gravatar-url';
 
@@ -9,16 +10,22 @@ import { useFindPartner } from '../../hooks';
 import conversationApi from '../../features/conversation/conversationApi';
 
 export default function ChatBody() {
+	const { id: conversationId } = useParams();
 	const { user } = useSelector((state) => state.auth);
 
 	// get the conversations form the cache
 	const { data: conversations, isLoading: gettingConversationIsLoading } =
 		conversationApi.endpoints.getConversations.useQueryState(user?.email);
 
+	// find the conversation
+	const conversation =
+		conversations?.length &&
+		conversations.find((c) => parseInt(c.id) === parseInt(conversationId));
+
 	// get partner details
 	const partner = useFindPartner(
 		user?.email,
-		conversations?.length && conversations[0].users
+		conversation && conversation.users
 	);
 
 	return gettingConversationIsLoading ? (
