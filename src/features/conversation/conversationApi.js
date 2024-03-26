@@ -1,5 +1,7 @@
+import { io } from 'socket.io-client';
 import apiSlice from '../api/apiSlice';
 import messagesApi from '../message/messageApi';
+import { useFindUser } from '../../hooks';
 
 const conversationApi = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
@@ -7,6 +9,56 @@ const conversationApi = apiSlice.injectEndpoints({
 			query: (email) => ({
 				url: `/conversations?participants_like=${email}&_sort=timestamp&_order=desc`,
 			}),
+
+			async onCacheEntryAdded(
+				email,
+				{ cacheDataLoaded, cacheEntryRemoved, updateCachedData }
+			) {
+				// create a socket instance
+				const socket = io('http://localhost:9000', {
+					withCredentials: true,
+				});
+
+				try {
+					await cacheDataLoaded;
+
+					socket.on('conversation', (data) => {
+						const { data: conversation } = data;
+
+						const {
+							id: conversationId,
+							users,
+							message,
+							timestamp,
+						} = conversation || {};
+
+						// check if the conversation is for the user
+						const conversationForUser = useFindUser(email, users);
+
+						if (conversationForUser?.id) {
+							updateCachedData((draft) => {
+								const conversationExists = draft.find(
+									(c) => c?.id === conversationId
+								);
+
+								// edit conversation - if exists
+								if (conversationExists?.id) {
+									conversationExists.message = message;
+									conversationExists.timestamp = timestamp;
+								} else {
+									// add conversation to draft
+									draft.unshift(conversation);
+								}
+							});
+						}
+					});
+				} catch (error) {
+					// do nothing
+				}
+
+				await cacheEntryRemoved;
+				socket.close();
+			},
 		}),
 		addConversation: builder.mutation({
 			query: ({ data }) => ({
