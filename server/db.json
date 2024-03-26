@@ -1,76 +1,24 @@
 {
-  "users": [
-    {
-      "email": "sumit@learnwithsumit.com",
-      "password": "$2a$10$SMTtPeKdTMGrbxfiI9qAfeC5qqZYmZHrkuvbQ.ZJ556KIPzjGJKnO",
-      "name": "Sumit Saha",
-      "id": 1
-    },
-    {
-      "email": "prac@tice.com",
-      "password": "$2a$10$2ewOU/QlXwkB1tdZ3wPrn.HDZe9LKK37u0PWS5PA/D4tatdJUijY6",
-      "name": "Mohammad Naiem",
-      "id": 2
-    },
-    {
-      "email": "mdratahmednaiem@gmail.com",
-      "password": "$2a$10$Bxx0bPnwz05R4w8uM1.9E.yAVfSbO1m9EDUo6mKh1lrRD0lWsO956",
-      "name": "Mohammad Naiem",
-      "id": 3
-    }
-  ],
-  "conversations": [
-    {
-      "participants": "mdratahmednaiem@gmail.com-sumit@learnwithsumit.com",
-      "users": [
-        {
-          "email": "mdratahmednaiem@gmail.com",
-          "name": "Mohammad Naiem",
-          "id": 3
-        },
-        {
-          "id": 1,
-          "name": "Sumit Saha",
-          "email": "sumit@learnwithsumit.com"
-        }
-      ],
-      "message": "Hello",
-      "timestamp": 1711488095353,
-      "id": 1
-    }
-  ],
-  "messages": [
-    {
-      "conversationId": 1,
-      "sender": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "email": "sumit@learnwithsumit.com"
-      },
-      "receiver": {
-        "id": 3,
-        "name": "Mohammad Naiem",
-        "email": "mdratahmednaiem@gmail.com"
-      },
-      "message": "Hi",
-      "timestamp": 1711488072144,
-      "id": 1
-    },
-    {
-      "conversationId": 1,
-      "sender": {
-        "email": "mdratahmednaiem@gmail.com",
-        "name": "Mohammad Naiem",
-        "id": 3
-      },
-      "receiver": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "email": "sumit@learnwithsumit.com"
-      },
-      "message": "Hello",
-      "timestamp": 1711488095353,
-      "id": 2
-    }
-  ]
+	"users": [
+		{
+			"email": "sumit@learnwithsumit.com",
+			"password": "$2a$10$SMTtPeKdTMGrbxfiI9qAfeC5qqZYmZHrkuvbQ.ZJ556KIPzjGJKnO",
+			"name": "Sumit Saha",
+			"id": 1
+		},
+		{
+			"email": "prac@tice.com",
+			"password": "$2a$10$2ewOU/QlXwkB1tdZ3wPrn.HDZe9LKK37u0PWS5PA/D4tatdJUijY6",
+			"name": "Mohammad Naiem",
+			"id": 2
+		},
+		{
+			"email": "mdratahmednaiem@gmail.com",
+			"password": "$2a$10$Bxx0bPnwz05R4w8uM1.9E.yAVfSbO1m9EDUo6mKh1lrRD0lWsO956",
+			"name": "Mohammad Naiem",
+			"id": 3
+		}
+	],
+	"conversations": [],
+	"messages": []
 }

@@ -112,19 +112,6 @@ const conversationApi = apiSlice.injectEndpoints({
 							)
 						);
 					});
-
-					// pessimistically update conversation cache
-					if (newConversation?.id) {
-						dispatch(
-							apiSlice.util.updateQueryData(
-								'getConversations',
-								userEmail,
-								(draft) => {
-									draft.unshift(newConversation);
-								}
-							)
-						);
-					}
 				} catch (err) {
 					// handle error in the ui
 				}
