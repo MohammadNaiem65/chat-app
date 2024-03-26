@@ -1,148 +1,30 @@
 {
-  "users": [
-    {
-      "email": "sumit@learnwithsumit.com",
-      "password": "$2a$10$SMTtPeKdTMGrbxfiI9qAfeC5qqZYmZHrkuvbQ.ZJ556KIPzjGJKnO",
-      "name": "Sumit Saha",
-      "id": 1
-    },
-    {
-      "email": "prac@tice.com",
-      "password": "$2a$10$2ewOU/QlXwkB1tdZ3wPrn.HDZe9LKK37u0PWS5PA/D4tatdJUijY6",
-      "name": "Md Rifat Ahmed Tusar",
-      "id": 2
-    },
-    {
-      "email": "mdratahmednaiem@gmail.com",
-      "password": "$2a$10$EJHY/EVT.eM1hMWXXar8uO9x3fFZwobQQ0KuEYtXxRo9c6wa2sq8y",
-      "name": "Md Rifat Ahmed Tusar",
-      "id": 3
-    },
-    {
-      "email": "md.rifat@gmail.com",
-      "password": "$2a$10$B12eW6q8AzZ9Rl0eMjvfL.wlwykMByR5cNPga6Rad4AJ0KII5C71q",
-      "name": "Test",
-      "id": 4
-    }
-  ],
-  "conversations": [
-    {
-      "participants": "prac@tice.com-sumit@learnwithsumit.com",
-      "users": [
-        {
-          "email": "prac@tice.com",
-          "name": "Md Rifat Ahmed Tusar",
-          "id": 2
-        },
-        {
-          "id": 1,
-          "name": "Sumit Saha",
-          "email": "sumit@learnwithsumit.com"
-        }
-      ],
-      "message": "test again",
-      "timestamp": 1711394105428,
-      "id": 1
-    },
-    {
-      "participants": "prac@tice.com-mdratahmednaiem@gmail.com",
-      "users": [
-        {
-          "email": "prac@tice.com",
-          "name": "Md Rifat Ahmed Tusar",
-          "id": 2
-        },
-        {
-          "id": 3,
-          "name": "Md Rifat Ahmed Tusar",
-          "email": "mdratahmednaiem@gmail.com"
-        }
-      ],
-      "message": "again",
-      "timestamp": 1711394206404,
-      "id": 2
-    }
-  ],
-  "messages": [
-    {
-      "conversationId": 1,
-      "sender": {
-        "id": 2,
-        "name": "Md Rifat Ahmed Tusar",
-        "email": "prac@tice.com"
-      },
-      "receiver": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "email": "sumit@learnwithsumit.com"
-      },
-      "message": "test",
-      "timestamp": 1711394075869,
-      "id": 1
-    },
-    {
-      "conversationId": 1,
-      "sender": {
-        "email": "prac@tice.com",
-        "name": "Md Rifat Ahmed Tusar",
-        "id": 2
-      },
-      "receiver": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "email": "sumit@learnwithsumit.com"
-      },
-      "message": "test again",
-      "timestamp": 1711394105428,
-      "id": 2
-    },
-    {
-      "conversationId": 2,
-      "sender": {
-        "id": 2,
-        "name": "Md Rifat Ahmed Tusar",
-        "email": "prac@tice.com"
-      },
-      "receiver": {
-        "id": 3,
-        "name": "Md Rifat Ahmed Tusar",
-        "email": "mdratahmednaiem@gmail.com"
-      },
-      "message": "testing",
-      "timestamp": 1711394162644,
-      "id": 3
-    },
-    {
-      "conversationId": 2,
-      "sender": {
-        "email": "prac@tice.com",
-        "name": "Md Rifat Ahmed Tusar",
-        "id": 2
-      },
-      "receiver": {
-        "id": 3,
-        "name": "Md Rifat Ahmed Tusar",
-        "email": "mdratahmednaiem@gmail.com"
-      },
-      "message": "test again",
-      "timestamp": 1711394198684,
-      "id": 4
-    },
-    {
-      "conversationId": 2,
-      "sender": {
-        "email": "prac@tice.com",
-        "name": "Md Rifat Ahmed Tusar",
-        "id": 2
-      },
-      "receiver": {
-        "id": 3,
-        "name": "Md Rifat Ahmed Tusar",
-        "email": "mdratahmednaiem@gmail.com"
-      },
-      "message": "again",
-      "timestamp": 1711394206404,
-      "id": 5
-    }
-  ]
+	"users": [
+		{
+			"email": "sumit@learnwithsumit.com",
+			"password": "$2a$10$SMTtPeKdTMGrbxfiI9qAfeC5qqZYmZHrkuvbQ.ZJ556KIPzjGJKnO",
+			"name": "Sumit Saha",
+			"id": 1
+		},
+		{
+			"email": "prac@tice.com",
+			"password": "$2a$10$2ewOU/QlXwkB1tdZ3wPrn.HDZe9LKK37u0PWS5PA/D4tatdJUijY6",
+			"name": "Md Rifat Ahmed Tusar",
+			"id": 2
+		},
+		{
+			"email": "mdratahmednaiem@gmail.com",
+			"password": "$2a$10$EJHY/EVT.eM1hMWXXar8uO9x3fFZwobQQ0KuEYtXxRo9c6wa2sq8y",
+			"name": "Md Rifat Ahmed Tusar",
+			"id": 3
+		},
+		{
+			"email": "md.rifat@gmail.com",
+			"password": "$2a$10$B12eW6q8AzZ9Rl0eMjvfL.wlwykMByR5cNPga6Rad4AJ0KII5C71q",
+			"name": "Test",
+			"id": 4
+		}
+	],
+	"conversations": [],
+	"messages": []
 }
