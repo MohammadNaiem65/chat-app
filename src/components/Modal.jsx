@@ -74,6 +74,10 @@ export default function Modal({ open, control, user }) {
 	const handleSendConversation = (e) => {
 		e.preventDefault();
 
+		if (userEmail === partnerEmail) {
+			return setError("You can't message yourself.");
+		}
+
 		const conversation = {
 			participants: `${userEmail}-${partnerEmail}`,
 			users: [
